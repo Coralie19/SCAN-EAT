@@ -6,7 +6,6 @@ import Scan from '../src/containers/Scan/scan';
 import Products from '../src/containers/Products/products'
 
 
-
 function App() {
   return (
     <div className="App">
