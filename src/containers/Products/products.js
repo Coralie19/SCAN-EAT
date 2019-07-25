@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
+import Itemlist from './../../components/Itemlist';
+import Button from './../../components/Button';
 
 class Products extends Component {
   state = {  }
   render() { 
-    return ( <h1>Products page</h1> );
+    return ( 
+      <div>
+        <h1>Products page</h1>
+        <Itemlist />
+        <Button />
+      </div>
+      );
+    }
   }
-}
  
 export default Products;

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Barcodescan extends Component {
   state = {  }
   render() { 
-    return (  );
+    return ( <h2>barcode scan compo</h2>  );
   }
 }
  
