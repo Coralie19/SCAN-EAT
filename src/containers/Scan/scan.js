@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Scan extends Component {
   state = {  }
   render() { 
-    return (  );
+    return ( <h1>Scan page</h1>  );
   }
 }
  
