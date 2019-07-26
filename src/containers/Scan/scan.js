@@ -31,13 +31,30 @@ class Scan extends Component {
     }
   }
 
+
+
+  pickDate = (expiryDate) => {
+    // store picked date in DB
+    console.log(expiryDate)
+    //   this.setState({expiryDate});
+    //   console.log(this.state)
+  }
+
+  cancelItem = (name) => {
+    console.log('cancelled product name:', name)
+    this.setState ({
+    scanning: true, //scan on again
+    results: [], // reset the results
+    })
+   // this.setState({results : this.state.results.filter(product => product.code !== code)})
+  }
+
+
   renderProductDetails = () => {
     return (
       <div>
-        <Item name={this.state.results.name} category={this.state.results.category} />
-        <Datepicker /> 
-        {/* not show */}
-        {/* <DatedItem name={this.state.results.name} category={this.state.results.category} /> */}
+        <Item name={this.state.results.name} category={this.state.results.category} cancelItem={this.cancelItem} />
+        <Datepicker pickDate= {this.pickDate}/> 
       </div>
     )
   } 

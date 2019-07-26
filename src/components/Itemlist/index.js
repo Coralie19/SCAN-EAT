@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-// import DatedItem from '../DatedItem';
+import DatedItem from '../DatedItem';
 
 class Itemlist extends Component {
-  state = {  }
+  
+
   render() { 
-    //list component:
-    // const results = this.state.results.map( result => { 
-    //   return <li key={result.codeResult.code}><Item result={result} /></li>
-    // })
+    const item = this.props.items.map( item => { 
+      return <li key={item.code}><DatedItem item={item} clickHandler={this.props.deleteItem} /></li>
+    });
     
     return ( 
       <div>
-        <h2>item list compo</h2>  
+        <ul>
+          {item}  
+        </ul> 
       </div>
     );
   }
