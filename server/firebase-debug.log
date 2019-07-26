@@ -1,0 +1,66 @@
+[debug] [2019-07-26T17:29:45.498Z] ----------------------------------------------------------------------
+[debug] [2019-07-26T17:29:45.500Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\coral\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-07-26T17:29:45.501Z] CLI Version:   7.2.1
+[debug] [2019-07-26T17:29:45.501Z] Platform:      win32
+[debug] [2019-07-26T17:29:45.501Z] Node Version:  v10.15.3
+[debug] [2019-07-26T17:29:45.502Z] Time:          Fri Jul 26 2019 19:29:45 GMT+0200 (Central European Summer Time)
+[debug] [2019-07-26T17:29:45.502Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-07-26T17:29:45.511Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-07-26T17:29:45.512Z] > authorizing via signed-in user
+[debug] [2019-07-26T17:29:45.512Z] [iam] checking project soloproject-3bcb1 for permissions ["firebase.projects.get"]
+[debug] [2019-07-26T17:29:45.513Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/soloproject-3bcb1:testIamPermissions  
+
+[debug] [2019-07-26T17:29:46.381Z] <<< HTTP RESPONSE 200
+[debug] [2019-07-26T17:29:46.383Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/soloproject-3bcb1  
+ 
+[debug] [2019-07-26T17:29:46.644Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\coral\Documents\1. Codeworks\6_soloproject\soloproject'...
+[info] 
+[debug] [2019-07-26T17:29:46.759Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received type undefined
+    at validateString (internal/validators.js:125:11)
+    at Object.join (path.js:427:7)
+    at new FunctionsEmulator (C:\Users\coral\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:43:34)
+    at Object.<anonymous> (C:\Users\coral\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:40:71)
+    at Generator.next (<anonymous>)
+    at C:\Users\coral\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:7:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\coral\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:3:12)
+    at Object.start (C:\Users\coral\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:16:16)
+    at C:\Users\coral\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\index.js:15:23
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2019-07-26T17:30:37.656Z] ----------------------------------------------------------------------
+[debug] [2019-07-26T17:30:37.658Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\coral\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-07-26T17:30:37.659Z] CLI Version:   7.2.1
+[debug] [2019-07-26T17:30:37.659Z] Platform:      win32
+[debug] [2019-07-26T17:30:37.659Z] Node Version:  v10.15.3
+[debug] [2019-07-26T17:30:37.660Z] Time:          Fri Jul 26 2019 19:30:37 GMT+0200 (Central European Summer Time)
+[debug] [2019-07-26T17:30:37.660Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-07-26T17:30:37.668Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-07-26T17:30:37.669Z] > authorizing via signed-in user
+[debug] [2019-07-26T17:30:37.669Z] [iam] checking project soloproject-3bcb1 for permissions ["firebase.projects.get"]
+[debug] [2019-07-26T17:30:37.671Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/soloproject-3bcb1:testIamPermissions  
+
+[debug] [2019-07-26T17:30:38.537Z] <<< HTTP RESPONSE 200
+[debug] [2019-07-26T17:30:38.538Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/soloproject-3bcb1  
+ 
+[debug] [2019-07-26T17:30:38.766Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\coral\Documents\1. Codeworks\6_soloproject\soloproject'...
+[info] 
+[debug] [2019-07-26T17:30:38.886Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received type undefined
+    at validateString (internal/validators.js:125:11)
+    at Object.join (path.js:427:7)
+    at new FunctionsEmulator (C:\Users\coral\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulator.js:43:34)
+    at Object.<anonymous> (C:\Users\coral\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:40:71)
+    at Generator.next (<anonymous>)
+    at C:\Users\coral\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:7:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\coral\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:3:12)
+    at Object.start (C:\Users\coral\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\functions.js:16:16)
+    at C:\Users\coral\AppData\Roaming\npm\node_modules\firebase-tools\lib\serve\index.js:15:23
+[error] 
+[error] Error: An unexpected error has occurred.
