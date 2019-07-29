@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
+import { Redirect } from 'react-router-dom'
 import "react-datepicker/dist/react-datepicker.css";
 
 // import {registerLocale} from 'react-datepicker';
@@ -11,43 +12,53 @@ class Datepicker extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: new Date(),
+      redirect: false,
     };
   }
 
-  handleSelect = date => {
-    console.log('The starting date is: ' + this.state.date);
+  //Redirection to Products page
+  setRedirect = () => {
     this.setState({
-      date: date
-    });
+      redirect: true
+    })
   }
 
-  // handleChange = (value, event)  => {
-  //   console.log('The event value is: ' + event.target.value)
-    // this.setState({
-    //   date: event.target.value
-    // });
-  // }
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/products' />
+    }
+  }
+
+
+  //Setting the expiry date:
+  handleChange = date => {
+    console.log('handleChange date', date) //ok
+    this.props.onSelect(date);
+  }
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log('The chosen date is: ' + this.state.date);
-    // link to listItem page
-    //this.setState({date: new Date()}); //reset not needed as we leave the page
+    console.log('handleSubmit happening with event', event) // ok
+  }
+
+  onClick = (event) => {
+    this.handleSubmit(event);
+    this.setRedirect();
+    //this.props.addItem()
   }
 
   render() { 
     return ( 
       <div>
-      <form onSubmit={this.handleSubmit}>
+      {this.renderRedirect()}
+      <form onSubmit={this.onClick}>
         <DatePicker
           // locale="es"
-          selected={this.state.date}
-          onSelect={this.handleSelect} //when day is clicked
-          onChange={this.handleChange} //only when value has changed
-          // onClickOutside={} //close todo
+          selected={this.props.date}
+          onChange={this.handleChange} //when value has changed
+          // onClickOutside={} //close todo if time
         />
-        <input type="submit" value="Add" />
+        <button disabled={this.props.date == null} type="submit">Add</button>
       </form>
       </div>
       );

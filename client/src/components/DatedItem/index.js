@@ -9,14 +9,16 @@ class DatedItem extends Component {
 
   //invoke
   clickHandler() {
-    //this.props.clickHandler(this.props.item.code) //item code to set
+    this.props.clickHandler(this.props.item._id)
   }
 
   render() { 
     return (
       <div>
         <h3>dated item test</h3>
-        {/* <h3> {this.props.expiryDate} </h3> */}
+        <h3> {this.props.item.name} </h3>
+        <h3> {this.props.item.category} </h3>
+        <h3> {this.props.item.expiry_date} </h3>
         <button onClick={this.clickHandler}>x</button>
       </div>
       )

@@ -1,35 +1,44 @@
 import React, { Component } from 'react';
-import Itemlist from './../../components/Itemlist';
-import Button from './../../components/Button';
+import Itemlist from '../../components/Itemlist';
+import Button from '../../components/Button';
+ 
 
 class Products extends Component {
   constructor (props) {
     super (props);
     this.state = { 
-      items : []
+      items : [],
+      baseURL: 'http://localhost:4000/'
     }
   }
 
   componentDidMount () {
-    //fetch
-    // db.collection('items').get().then( (snapshot) => {
-    //   console.log(snapshot.docs)
-    // })
+    // get products
+    fetch(`${this.state.baseURL}products`)
+    .then(res => res.json())
+    .then(items => this.setState({items: this.sortByDate(items)}))
+  }
+  
+  sortByDate = items => {
+    return items.sort((a,b) => new Date(a.expiry_date) - new Date(b.expiry_date))
   }
 
-  addItem = () => {
-    //add
-  }
 
-  deleteItem = (code) => {
-    // delete from db
+  deleteItem = (id) => {
+    fetch(`${this.state.baseURL}products/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(() => this.setState({items : this.state.items.filter(item => item._id !== id)}))
   }
   
   render() { 
     return ( 
       <div>
         <h1>Products page</h1>
-        <Itemlist items={this.state.items} deleteTopic={this.deleteItem} />
+        <Itemlist items={this.state.items} deleteItem={this.deleteItem} />
         <Button />
       </div>
       );

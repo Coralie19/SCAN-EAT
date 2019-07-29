@@ -14,8 +14,8 @@ componentDidMount() {
       inputStream: {
         type: 'LiveStream',
         constraints: {
-          width: 640,
-          height: 380,
+          width: 250, //640
+          height: 200, //380
           facingMode: 'environment', 
         },
       },

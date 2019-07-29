@@ -6,7 +6,7 @@ class Itemlist extends Component {
 
   render() { 
     const item = this.props.items.map( item => { 
-      return <li key={item.code}><DatedItem item={item} clickHandler={this.props.deleteItem} /></li>
+      return <li key={item.id}><DatedItem item={item} clickHandler={this.props.deleteItem} /></li>
     });
     
     return ( 

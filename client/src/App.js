@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom"
-import Home from '../src/containers/Home/home';
-import Scan from '../src/containers/Scan/scan';
-import Products from '../src/containers/Products/products'
+import Home from './containers/Home/home';
+import Scan from './containers/Scan/scan';
+import Products from './containers/Products/products'
 
 
 function App() {

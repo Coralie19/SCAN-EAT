@@ -15,7 +15,7 @@ const ItemSchema = new Schema ({
     type: Number,
     required: true
   },
-  date : {
+  expiry_date : {
     type: String,
     required: true
   }
