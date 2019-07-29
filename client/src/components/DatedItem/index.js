@@ -21,7 +21,7 @@ class DatedItem extends Component {
     this.props.clickHandler(this.props.item._id)
   }
 
-  
+  // to update with images
   renderImage() {
     console.log(this.diff)
     if (isNaN(this.diff) === true) return <h5>Expired</h5>;
@@ -34,14 +34,16 @@ class DatedItem extends Component {
   render() { 
 
     return (
-      <div>
-        <div> 
+      <div className="dated-item">
+        <div className="item-info"> 
         <h3> {this.props.item.name} </h3>
         <h3> {this.props.item.category} </h3>  
         <Moment format="MMM Do, YYYY">{this.expiryDate}</Moment>
         <div>{this.renderImage()} </div> 
         </div>
-        <button onClick={this.clickHandler}>x</button>
+        <div className="delete-btn">
+          <button onClick={this.clickHandler}>x</button>
+        </div>
       </div>
       )
     }

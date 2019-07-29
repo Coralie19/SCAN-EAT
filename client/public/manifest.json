@@ -1,15 +1,25 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Scan'Eat",
+  "name": "Food_Waste_app",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "favicon 32x32.ico",
+      "sizes": "32x32",
       "type": "image/x-icon"
+    },
+    {
+      "src": "images/android/icon-96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "images/android/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
     }
   ],
-  "start_url": ".",
+  "start_url": "http://localhost:3000/",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#e4e4e4",
   "background_color": "#ffffff"
 }

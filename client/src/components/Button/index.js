@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import btnimg from '../../btn.jpg';
+import btnimg from '../../assets/btn-nobg.png';
 
 
 class Button extends Component {
-  state = {  }
+  
   render() { 
     return ( 
     <div className="btn">

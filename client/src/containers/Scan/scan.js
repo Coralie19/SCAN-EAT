@@ -42,15 +42,12 @@ class Scan extends Component {
   //Set the expiry date in the state
   onSelect = newDate => {
     console.log('the passed newdate arg is:', newDate); //ok
-    this.setState({ 
-      date: newDate //moment(newDate).format("MMMM Do, YYYY")
-    }, () => console.log('The updated state date is: ', this.state.date)); //ok
+    this.setState({results: { 
+      ...this.state.results,
+      expiry_date: newDate //to be updated with the date picker
+     }}, () => console.log('The last state date is: ', this.state.results.expiry_date)) // try 
   }
 
-    // this.setState({results: { 
-    //   expiry_date : this.state.date //to be updated with the date picker
-    //  }}, () => console.log('The last state date is: ', this.state.results.expiry_date)) // try 
-    // }
 
 
  //Add item with all info

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import Button from '../../components/Button';
-import Img from '../../img-placeholder.jpg';
+import Img from '../../assets/img-placeholder.jpg';
 
 class Home extends Component {
   state = {  }

@@ -42,7 +42,7 @@ class Products extends Component {
   
   render() { 
     return ( 
-      <div>
+      <div className="products-page">
         <h1>Products page</h1>
         <Itemlist items={this.state.items} deleteItem={this.deleteItem} />
         <Button />
