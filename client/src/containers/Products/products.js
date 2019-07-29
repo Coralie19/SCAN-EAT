@@ -44,7 +44,9 @@ class Products extends Component {
     return ( 
       <div className="products-page">
         <h1>Products page</h1>
-        <Itemlist items={this.state.items} deleteItem={this.deleteItem} />
+        <div className="products-list">
+          <Itemlist items={this.state.items} deleteItem={this.deleteItem} />
+        </div>
         <Button />
       </div>
       );

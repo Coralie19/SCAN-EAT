@@ -4,11 +4,12 @@
   box-sizing: border-box;
 }
 
+/* body height to update */
 body {
   font-family: "Lato", sans-serif;
-  background-color: rgb(245, 238, 237);
+  background-color: rgb(228, 228, 228);
   color: rgb(115, 115, 115);
-  height: 95%;
+  height: 740px;
 }
 
 h1 {
@@ -27,6 +28,10 @@ h3 {
   margin-bottom: 5%;
 }
 
+h4 {
+  text-align: left;
+  margin: 2% 2% 2% 1%;
+}
 
 h5 {
   text-align: right;
@@ -42,6 +47,14 @@ ul {
   list-style: none;
 }
 
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
 
 /* home page */
 
@@ -59,31 +72,106 @@ ul {
 
 
 /* scan page */
+.btn-scan {
+  background: #ffffff;
+  border-radius: 30px;
+  border: solid 3px #8380e7;
+  width: 80%;
+  height:8%;
+}
 
 /* product page */
 .products-page {
   display: flex;
-  background: rgb(228, 228, 228);
+  background:#ffffff;
   flex-direction: column;
+  border: solid 1px black;
+  height: 740px;
+}
+
+/* items list */
+.products-list {
+  border: solid 1px blue;
+  margin-top: 15%;
+  margin-bottom: 5%;
+  padding-top: 8%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  height: 550px;
+  background: rgb(228, 228, 228);
+
 }
 
 /* items */
 .dated-item {
-  border: solid 1px black;
   display: flex;
-  flex-direction: column;
-  margin-bottom: 5%;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0% auto 8% auto;
+  box-shadow: -5px 10px 15px 0px rgba(163,163,163,1);
+  height: 110px;
+  width: 90%;
+  color: black;
+  background: #ffffff;
+  border-radius: 15px;
+  /* border: solid 1px red; */
+}
+
+/* items info*/
+.item-info {
+  margin: 2% 1% 2% 2%;
+  /* border: solid 1px green; */
+  text-align: left;
+  padding-left: 3%;
 }
 
 
-/* btn */
+.status {
+  text-align: center;
+  align-self: center;
+  margin-top: 0;
+  height: 110px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: rgba(255, 255, 255, 0.8)
+}
 
+.status-red {
+  background-image: linear-gradient(to right bottom, #f53b82, #f83874, #f93767, #f93858, #f73c4a);
+}
+
+.status-pink {
+  background-image: linear-gradient(to right bottom, #dd53b4, #e54ca8, #ec459c, #f1408f, #f53b82);
+}
+
+.status-purple {
+  background-image: linear-gradient(to right bottom, #b06fd8, #bd68d1, #c962c8, #d35abf, #dd53b4);
+}
+
+.status-blue {
+  background-image: linear-gradient(to right bottom, #7185ea, #8380e7, #937be3, #a275de, #b06fd8);
+}
+
+
+
+/* btn */
 .btn {
   align-self: flex-end;
   margin-right: 5%;
   margin-bottom: 5%;
   padding: 10px;
+  position: fixed;
+  bottom:0.5px;
 }
+
+.delete-btn {
+  justify-self: flex-end;
+  padding-top: 3%;
+  margin-right: 3%;
+  cursor: pointer;
+  /* border: solid 1px orange; */
+}
+
 
 
 
