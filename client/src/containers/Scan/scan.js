@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Barcodescan from '../../components/Barcodescan';
 import Item from '../../components/Item';
 import Datepicker from '../../components/Datepicker';
+//import moment from 'moment';
+
 
 class Scan extends Component {
 
@@ -10,7 +12,7 @@ class Scan extends Component {
     scanning: true, //scanner on by default
     results: [],
     routeURL: 'http://127.0.0.1:4000/scan',
-    date: new Date()
+    date: new Date(),
   };
 
   // result is the scanned EAN13 code & Product is the related product fetched from Open Food API
@@ -28,11 +30,11 @@ class Scan extends Component {
             name : product.product.product_name, 
             category : product.product.categories, 
             id : product.code,
-            expiry_date : this.state.date //to be updated with the date picker
+            expiry_date : this.state.date // moment(this.state.date).format("MMMM Do, YYYY")  //to be updated with the date picker
            }}) 
-          console.log('after on detect', this.state)
-          
+          console.log('after on detect', this.state)      
         })
+        .catch(console.error.bind(console)) // new
     }
   }
 
@@ -41,27 +43,31 @@ class Scan extends Component {
   onSelect = newDate => {
     console.log('the passed newdate arg is:', newDate); //ok
     this.setState({ 
-      date: newDate 
+      date: newDate //moment(newDate).format("MMMM Do, YYYY")
     }, () => console.log('The updated state date is: ', this.state.date)); //ok
-}
-
-  //Not posting yet
-  //Add item with all info - to launch on click
-  addItem = (result) => {
-    console.log('post in db', result)
-    fetch(`${this.state.routeURL}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(result)
-      })
-    .then(result => result.json())
-    .then(result => { 
-      console.log('The updated expiry date is: ', this.state.results.expiry_date) //not working 
-    })
-    .catch(console.error.bind(console))
   }
+
+    // this.setState({results: { 
+    //   expiry_date : this.state.date //to be updated with the date picker
+    //  }}, () => console.log('The last state date is: ', this.state.results.expiry_date)) // try 
+    // }
+
+
+ //Add item with all info
+
+ addItem = (item) => {
+  item = this.state.results;
+  console.log('item to post in db', item)
+  fetch(`${this.state.routeURL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(item)
+    })
+  .then(res => res.json())
+  .catch(console.error.bind(console))
+}
 
   // Days left before expiry
   daysBeforeExpiry = () => {
@@ -79,6 +85,7 @@ class Scan extends Component {
     console.log('state after cancel', this.state.results)
   }
 
+  
 
   // Render the item if match
   renderProductDetails = () => {

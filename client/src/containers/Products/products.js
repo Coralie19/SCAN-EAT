@@ -23,6 +23,12 @@ class Products extends Component {
     return items.sort((a,b) => new Date(a.expiry_date) - new Date(b.expiry_date))
   }
 
+  //to do (map)
+  daysBeforeExpiry = items => {
+    let difference = this.state.date - new Date(); //map sur items
+    return difference;
+  }
+
 
   deleteItem = (id) => {
     fetch(`${this.state.baseURL}products/${id}`, {
