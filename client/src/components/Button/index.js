@@ -12,8 +12,7 @@ class Button extends Component {
           <li>
             <Link to="/scan">
               <img src={btnimg} alt={"btnimg"} height= "60px"/>
-            </Link>
-            
+            </Link>            
           </li>
         </ul>
     </div>

@@ -44,7 +44,7 @@ class Datepicker extends Component {
   onClick = (event) => {
     this.handleSubmit(event);
     this.setRedirect();
-    //this.props.addItem()
+    this.props.addItem() //try
   }
 
   render() { 

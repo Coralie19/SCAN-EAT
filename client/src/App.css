@@ -8,6 +8,7 @@ body {
   font-family: "Lato", sans-serif;
   background-color: rgb(245, 238, 237);
   color: rgb(115, 115, 115);
+  height: 95%;
 }
 
 h1 {
@@ -24,6 +25,12 @@ h2 {
 h3 {
   margin-left: 15%;
   margin-bottom: 5%;
+}
+
+
+h5 {
+  text-align: right;
+  margin: 5% 15% 5% 0;
 }
 
 p {

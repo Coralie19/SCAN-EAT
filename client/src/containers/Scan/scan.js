@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import Barcodescan from '../../components/Barcodescan';
 import Item from '../../components/Item';
 import Datepicker from '../../components/Datepicker';
@@ -9,7 +10,7 @@ class Scan extends Component {
     scanning: true, //scanner on by default
     results: [],
     routeURL: 'http://127.0.0.1:4000/scan',
-    date: null
+    date: new Date()
   };
 
   // result is the scanned EAN13 code & Product is the related product fetched from Open Food API
@@ -27,7 +28,7 @@ class Scan extends Component {
             name : product.product.product_name, 
             category : product.product.categories, 
             id : product.code,
-            expiry_date : this.state.date //date to update with the date picker
+            expiry_date : this.state.date //to be updated with the date picker
            }}) 
           console.log('after on detect', this.state)
           
@@ -38,18 +39,16 @@ class Scan extends Component {
 
   //Set the expiry date in the state
   onSelect = newDate => {
-    console.log('the passed newdate arg is:', newDate) //ok
+    console.log('the passed newdate arg is:', newDate); //ok
     this.setState({ 
       date: newDate 
-    }); // not working
-    console.log('The updated state date is: ', this.state.date) //not updated
-    console.log('The updated expiry date is: ', this.state.results.expiry_date) //not updated
-  }
+    }, () => console.log('The updated state date is: ', this.state.date)); //ok
+}
 
-
+  //Not posting yet
   //Add item with all info - to launch on click
   addItem = (result) => {
-    
+    console.log('post in db', result)
     fetch(`${this.state.routeURL}`, {
       method: 'POST',
       headers: {
@@ -57,15 +56,12 @@ class Scan extends Component {
       },
       body: JSON.stringify(result)
       })
-    .then(res => res.json())
-    .then(result => {
-      console.log('done', result)
+    .then(result => result.json())
+    .then(result => { 
+      console.log('The updated expiry date is: ', this.state.results.expiry_date) //not working 
     })
     .catch(console.error.bind(console))
   }
-
-  //invoke it on condition with this.state.results
-  
 
   // Days left before expiry
   daysBeforeExpiry = () => {
@@ -99,6 +95,15 @@ class Scan extends Component {
     
     return ( 
       <div>
+        <div>
+          <ul>
+            <li>
+              <Link to="/products">
+              <h5>My list</h5>
+              </Link>            
+            </li>
+          </ul>
+        </div>
         <h1>Scan page</h1> 
         <Barcodescan onDetected={this.onDetected} />
         {this.state.results.name && this.renderProductDetails()}
