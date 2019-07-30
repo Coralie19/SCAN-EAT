@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Quagga from 'quagga';
+import captureimg from '../../assets/capture.svg';
+
 
 class Barcodescan extends Component {
 
@@ -14,8 +16,8 @@ componentDidMount() {
       inputStream: {
         type: 'LiveStream',
         constraints: {
-          width: 640, //250
-          height: 380, //200
+          width: 640, 
+          height: 380, 
           facingMode: 'environment', 
         },
       },
@@ -48,8 +50,11 @@ componentDidMount() {
 
 
   render() { 
-    return ( 
+    return (
+      <div>
+        <img src={captureimg} alt={"captureimg"} height= "360px" className="upper-img"/>
         <div id="interactive" className="viewport" />  
+      </div> 
     );
   }
 }

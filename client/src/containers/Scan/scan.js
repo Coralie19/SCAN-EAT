@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Barcodescan from '../../components/Barcodescan';
 import Item from '../../components/Item';
 import Datepicker from '../../components/Datepicker';
-//import moment from 'moment';
+import listimg from '../../assets/list.svg';
 
 
 class Scan extends Component {
@@ -17,44 +17,44 @@ class Scan extends Component {
 
   // result is the scanned EAN13 code & Product is the related product fetched from Open Food API
   onDetected = (result) => {
-    console.log(this.state)
     if (this.state.scanning) {
-      this.setState({ scanning: false }); // stop scanning when it get a result
+      this.setState({ scanning: false }); // stop scanning when it gets a result
       console.log(result)
       fetch(`https://world.openfoodfacts.org/api/v0/product/${result.codeResult.code}.json`)
         .then(response => response.json())
         .then(product => {
-          console.log(product.product.product_name, product.product.categories); 
-          // pass the product info to item
+          console.log('product', product); //to remove
+          if (product && product.status_verbose === 'product found') {
+          console.log(product.product.product_name, product.product.categories); //to remove
           this.setState({results: { 
             name : product.product.product_name, 
             category : product.product.categories, 
             id : product.code,
-            expiry_date : this.state.date // moment(this.state.date).format("MMMM Do, YYYY")  //to be updated with the date picker
+            expiry_date : this.state.date // date will be updated with the date picker
            }}) 
-          console.log('after on detect', this.state)      
-        })
-        .catch(console.error.bind(console)) // new
+        } else {
+          this.setState({ scanning: true });
+          console.log('in case of code error', this.state.scanning)
+          }
+      }) 
+        .catch(console.error.bind(console)) 
     }
   }
 
 
   //Set the expiry date in the state
   onSelect = newDate => {
-    console.log('the passed newdate arg is:', newDate); //ok
     this.setState({results: { 
       ...this.state.results,
-      expiry_date: newDate //to be updated with the date picker
-     }}, () => console.log('The last state date is: ', this.state.results.expiry_date)) // try 
+      expiry_date: newDate 
+     }}, () => console.log('The last state date is: ', this.state.results.expiry_date)) 
   }
 
 
 
- //Add item with all info
-
+ //Add item with all info in db
  addItem = (item) => {
   item = this.state.results;
-  console.log('item to post in db', item)
   fetch(`${this.state.routeURL}`, {
     method: 'POST',
     headers: {
@@ -62,15 +62,10 @@ class Scan extends Component {
     },
     body: JSON.stringify(item)
     })
-  .then(res => res.json())
+  .then(res => this.props.history.push('/products'))
   .catch(console.error.bind(console))
 }
 
-  // Days left before expiry
-  daysBeforeExpiry = () => {
-    let difference = this.state.date - new Date();
-    return difference;
-  }
 
   //cancel item (not wipping state back to empty, but working because rewrite)
   cancelItem = (id) => {
@@ -82,9 +77,8 @@ class Scan extends Component {
     console.log('state after cancel', this.state.results)
   }
 
-  
 
-  // Render the item if match
+  // Render the item if the API returns a match
   renderProductDetails = () => {
     return (
       <div>
@@ -94,23 +88,37 @@ class Scan extends Component {
     )
   } 
 
+  // Render the item if the API returns a match
+  // renderProductNotFound = () => {
+  //   console.log(this.product_name)
+  //   console.log(this.state.scanning)
+  //     this.setState ({
+  //       scanning: true,
+  //     })
+  //     console.log(this.state.scanning)
+  // } 
+
 
   render() { 
-    
     return ( 
-      <div>
-        <div>
-          <ul>
-            <li>
-              <Link to="/products">
-              <h5>My list</h5>
-              </Link>            
-            </li>
-          </ul>
+      <div className="scan-page">
+        <div className="header">
+          <h1>Let's scan</h1> 
+          <div className="btn-header module-border-wrap">
+            <ul className="module">
+              <li>
+                <Link to="/products">
+                <button>
+                  <img src={listimg} alt={"listimg"} height= "40px" className="list-icon"/>
+                </button>
+                </Link>            
+              </li>
+            </ul>
+          </div>
         </div>
-        <h1>Scan page</h1> 
+        
         <Barcodescan onDetected={this.onDetected} />
-        {this.state.results.name && this.renderProductDetails()}
+        {this.state.results.id && this.renderProductDetails()}
       </div>
     );
   }

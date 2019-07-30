@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import doneImg from '../../assets/done-cross.svg';
 
 class Item extends Component {
   constructor(props) {
@@ -18,11 +19,17 @@ class Item extends Component {
     const id = this.props.id;
   
     return ( 
-      <div>
-        <h3> {name} </h3>
-        <h3> {category} </h3>
-        <h3> {id} </h3>
-        <button onClick={this.clickHandler}>x</button>
+      <div className="item">
+        <div className="item-info"> 
+          <h4 className="item-name"> {name} </h4>
+          <h4 className="item-category"> {category} </h4>
+          <h4 className="item-info3">Barcode:&nbsp; {id} </h4>
+        </div>
+        <div className="delete-btn">
+         <button onClick={this.clickHandler}>
+          <img src={doneImg} alt={"doneImg"} height= "20px" />
+         </button>
+        </div>
       </div>
      );
   }

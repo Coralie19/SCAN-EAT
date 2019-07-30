@@ -22,23 +22,24 @@ class DatedItem extends Component {
 
   // to update with images
   renderImage() {
-    console.log(this.diff)
-    if (isNaN(this.diff) === true) return <h5 className="status status-red">Expired</h5>;
-    if (this.diff >= 0 && this.diff < 3) return <h5 className="status status-pink">Eat soon</h5>
-    if (this.diff >= 3 && this.diff < 6) return <h5 className="status status-purple">Okay</h5>;
-    if (this.diff >= 6) return <h5 className="status status-blue">Fresh</h5>;
+    if (isNaN(this.diff) === true || this.diff<0) return (<div className="status status-red"><h5>Expired</h5></div>);
+    if (this.diff >= 0 && this.diff < 3) return (<div className="status status-pink"><h5>Eat soon</h5></div>);
+    if (this.diff >= 3 && this.diff < 6) return (<div className="status status-purple"><h5>Good</h5></div>);
+    if (this.diff >= 6) return (<div className="status status-blue"><h5>Fresh</h5></div>);
   }
 
 
   render() { 
 
     return (
-      <div className="dated-item">
+      <div className="item">
         <div>{this.renderImage()} </div> 
         <div className="item-info"> 
-        <h4> {this.props.item.name} </h4>
-        <h4> {this.props.item.category} </h4>  
-        <Moment format="MMM Do, YYYY">{this.expiryDate}</Moment>
+          <h4 className="item-name"> {this.props.item.name} </h4>
+          <h4 className="item-category">{this.props.item.category} </h4> 
+          <h4 className="item-info3">Expire on : &nbsp;  
+            <Moment format="MMM Do, YYYY">{this.expiryDate}</Moment> 
+          </h4>   
         </div>
         <div className="delete-btn">
           <button onClick={this.clickHandler}>

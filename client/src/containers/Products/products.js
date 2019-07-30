@@ -23,11 +23,11 @@ class Products extends Component {
     return items.sort((a,b) => new Date(a.expiry_date) - new Date(b.expiry_date))
   }
 
-  //to do (map)
-  daysBeforeExpiry = items => {
-    let difference = this.state.date - new Date(); //map sur items
-    return difference;
-  }
+  // //to do (map)
+  // daysBeforeExpiry = items => {
+  //   let difference = this.state.date - new Date(); //map sur items
+  //   return difference;
+  // }
 
 
   deleteItem = (id) => {
@@ -43,11 +43,14 @@ class Products extends Component {
   render() { 
     return ( 
       <div className="products-page">
-        <h1>Products page</h1>
+        <div className="header">
+          <h1>Let's eat</h1>
+          <Button />
+        </div>
         <div className="products-list">
           <Itemlist items={this.state.items} deleteItem={this.deleteItem} />
         </div>
-        <Button />
+        <div className="footer"></div>
       </div>
       );
     }
