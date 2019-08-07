@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DatePicker from 'react-datepicker';
-// import { Redirect } from 'react-router-dom'
 import "react-datepicker/dist/react-datepicker.css";
+import calimg from '../../assets/cal.svg';
 
 
 class Datepicker extends Component {
@@ -29,7 +29,9 @@ class Datepicker extends Component {
             selected={this.props.date}
             onChange={this.handleChange} //when value has changed
           />
-          <button disabled={this.props.date == null} type="submit" className="calendar-btn">+</button>
+          <button disabled={this.props.date == null} type="submit" className="calendar-btn">
+          <img src={calimg} alt={"calnimg"} height= "25px" className="cal-icon"/>
+          </button>
         </form>
       </div> 
       );

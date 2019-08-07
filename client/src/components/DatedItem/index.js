@@ -37,7 +37,7 @@ class DatedItem extends Component {
         <div className="item-info"> 
           <h4 className="item-name"> {this.props.item.name} </h4>
           <h4 className="item-category">{this.props.item.category} </h4> 
-          <h4 className="item-info3">Expire on : &nbsp;  
+          <h4 className="item-info3">Best before : &nbsp;  
             <Moment format="MMM Do, YYYY">{this.expiryDate}</Moment> 
           </h4>   
         </div>

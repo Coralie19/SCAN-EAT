@@ -30,9 +30,9 @@ class Home extends Component {
         <img src={Img} alt={"Img"} height= "200px" className="home-img" />
       </div>
       <div>
-        <h3>Scan your products' barcodes </h3>
-        <h3>Keep track of the expiration dates</h3>
-        <h3>And avoid wasting food</h3>
+        <h3>Avoid wasting food</h3>
+        <h3 className="h3-light">Scan your products' barcodes</h3>
+        <h3 className="h3-light">And keep track of the expiration dates</h3>
       </div>
       <Button />
     </div> );

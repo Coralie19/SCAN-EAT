@@ -44,7 +44,9 @@ class Scan extends Component {
 
   //Set the expiry date in the state
   onSelect = newDate => {
-    this.setState({results: { 
+    this.setState({
+      date: newDate,
+      results: { 
       ...this.state.results,
       expiry_date: newDate 
      }}, () => console.log('The last state date is: ', this.state.results.expiry_date)) 
@@ -81,22 +83,12 @@ class Scan extends Component {
   // Render the item if the API returns a match
   renderProductDetails = () => {
     return (
-      <div>
+      <div className="slidemeup">
         <Item name={this.state.results.name} category={this.state.results.category} id={this.state.results.id} cancelItem={this.cancelItem} />
         <Datepicker date={this.state.date} onSelect={this.onSelect} addItem={this.addItem} /> 
       </div>
     )
   } 
-
-  // Render the item if the API returns a match
-  // renderProductNotFound = () => {
-  //   console.log(this.product_name)
-  //   console.log(this.state.scanning)
-  //     this.setState ({
-  //       scanning: true,
-  //     })
-  //     console.log(this.state.scanning)
-  // } 
 
 
   render() { 
@@ -104,7 +96,7 @@ class Scan extends Component {
       <div className="scan-page">
         <div className="header">
           <h1>Let's scan</h1> 
-          <div className="btn-header module-border-wrap">
+          <div className="btn-home-grey">
             <ul className="module">
               <li>
                 <Link to="/products">

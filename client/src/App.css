@@ -17,7 +17,7 @@ button {
   cursor: pointer;
 }
 
-/* body height to update */
+/* body - height to update */
 body {
   /* font-family: "Lato", sans-serif; */
   font-family: "Oxygen", sans-serif;
@@ -25,23 +25,9 @@ body {
   max-height: 740px;
 }
 
-/* 
-h2 {
-  margin-left: 15%;
-  margin-bottom: 2%;
-} */
-
-
-
-p {
-  margin-left: 15%;
-  margin-bottom: 5%;
-}
-
 ul {
   list-style: none;
 }
-
 
 
 /* HOME PAGE */
@@ -65,12 +51,19 @@ ul {
 h3 {
   margin-left: 10%;
   margin-bottom: 5%;
+}
+
+.h3-light {
+  margin-left: 10%;
+  margin-bottom: 5%;
   font-weight: lighter;
+  font-size: 16px;
 }
 
 .btn-header {
 align-self: center;
 }
+
 
 /* SCAN PAGE */
 
@@ -92,6 +85,26 @@ align-self: center;
   height: 10px;
   z-index:1;
 } 
+
+
+.slidemeup{
+  position:absolute;
+  bottom:-50px;;
+  height:200px;
+  width:100%;
+  left:0;
+  animation-name:slideup;
+  animation-delay:0.1s;
+  animation-duration:0.5s;
+  animation-fill-mode:forwards;
+  animation-timing-function:ease-out;
+
+  
+}
+@keyframes slideup {
+  0%{bottom:-50px}
+  100%{bottom:0;}
+}
 
 .calendar {
   display: flex;
@@ -115,11 +128,9 @@ form {
 
 .react-datepicker-wrapper {
   width: 70%;
-  /* border: solid 1px blue; */
 }
 
 .react-datepicker__input-container {
-  /* border: solid 1px orange; */
   width: 100%;
   padding: 3% 2%;
 }
@@ -141,16 +152,20 @@ input {
 }
 
 /* react-datepicker-popper */
-.react-datepicker__tile--hasActive {
+/* .react-datepicker__tile--hasActive {
   position: absolute; 
   will-change: transform; 
   top: 0px; 
   left: 0px; 
   transform: translate3d(100px, 440px, 0px);
-}
+} */
 
 .react-datepicker__triangle {
   display: none;
+}
+
+.react-datepicker__day--selected {
+  background: #937be3 !important;
 }
 
 .calendar-btn {
@@ -287,7 +302,7 @@ h4 {
   /* border: solid 1px orange; */
 }
 
-/* PRODUCT PAGE */
+/* PRODUCTS PAGE */
 
 .status {
   display: flex;
@@ -302,7 +317,6 @@ h4 {
 h5 {
   margin: auto;
 }
-
 
 .status-red {
   background-image: linear-gradient(to right bottom, #f53b82, #f83874, #f93767, #f93858, #f73c4a);
@@ -319,11 +333,4 @@ h5 {
 .status-blue {
   background-image: linear-gradient(to right bottom, #7185ea, #8380e7, #937be3, #a275de, #b06fd8);
 }
-
-
-
-
-
-
-
 
