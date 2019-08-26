@@ -6,7 +6,9 @@ It allows you to keep track of their expiration dates so that you know by what d
 Let's start!
 
 ## Screenshots
-
+<p align="center">
+    <img src="./SCANEAT.PNG" width="600px" />
+</p>
 
 ## Getting started
 
